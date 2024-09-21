@@ -1,0 +1,64 @@
+/* NotFound Component Styles */
+.NotFound {
+  display: flex;
+  min-height: 100vh; /* Changed from 100dvh to 100vh for better compatibility */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f9fa; /* Replace with your specific background color */
+  padding: 3rem 1rem;
+}
+
+.NotFound .NotFound__content {
+  margin: 0 auto;
+  max-width: 28rem;
+  text-align: center;
+}
+
+.NotFound .NotFound__icon {
+  margin: 0 auto;
+  height: 3rem;
+  width: 3rem;
+  color: #0d6efd; /* Replace with your specific primary color */
+}
+
+.NotFound .NotFound__title {
+  margin-top: 1rem;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: #212529; /* Replace with your specific foreground color */
+}
+
+.NotFound .NotFound__title--large {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.NotFound .NotFound__description {
+  margin-top: 1rem;
+  color: #6c757d; /* Replace with your specific muted foreground color */
+}
+
+.NotFound .NotFound__button-container {
+  margin-top: 1.5rem;
+}
+
+.NotFound .NotFound__button {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 0.375rem;
+  background-color: #1f2937;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  color: #ffffff; /* Replace with your specific primary foreground color */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+}
+
+.NotFound .NotFound__button:hover {
+  background-color: #1f2937e1; /* Replace with your specific primary color */
+}

@@ -1,0 +1,276 @@
+.sign-up-main-div {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #14522d;
+}
+
+.signup-container {
+  max-width: 28rem;
+  width: 100%;
+  background-color: rgba(31, 41, 55, 0.5); /* bg-gray-800 bg-opacity-50 */
+  backdrop-filter: blur(10px); /* backdrop-filter backdrop-blur-xl */
+  border-radius: 1rem; /* rounded-2xl */
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3); /* shadow-xl */
+  overflow: hidden;
+}
+
+.signup-content {
+  padding: 2rem; /* p-8 */
+}
+
+.signup-title {
+  font-size: 1.875rem; /* text-3xl */
+  font-weight: bold; /* font-bold */
+  margin-bottom: 1.5rem; /* mb-6 */
+  text-align: center; /* text-center */
+  background: linear-gradient(
+    to right,
+    #34d399,
+    #10b981
+  ); /* bg-gradient-to-r from-green-400 to-emerald-500 */
+  -webkit-background-clip: text; /* text-transparent bg-clip-text */
+  color: transparent;
+}
+
+.signup-button {
+  cursor: pointer;
+  margin-top: 1.25rem; /* mt-5 */
+  width: 100%; /* w-full */
+  padding: 0.75rem 1rem; /* py-3 px-4 */
+  background: linear-gradient(
+    to right,
+    #10b981,
+    #059669
+  ); /* bg-gradient-to-r from-green-500 to-emerald-600 */
+  color: white;
+  font-weight: bold; /* font-bold */
+  border: none;
+  border-radius: 0.5rem; /* rounded-lg */
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3); /* shadow-lg */
+  outline: none;
+  transition: all 0.2s ease-in-out; /* transition duration-200 */
+}
+
+.signup-button:hover {
+  background: linear-gradient(
+    to right,
+    #059669,
+    #047857
+  ); /* hover:from-green-600 hover:to-emerald-700 */
+}
+
+.signup-button:focus {
+  outline: none; /* focus:outline-none */
+  box-shadow: 0 0 0 4px rgba(5, 150, 105, 0.5); /* focus:ring-2 focus:ring-green-500 */
+}
+
+.signup-footer {
+  padding: 1rem 2rem; /* px-8 py-4 */
+  background-color: rgba(17, 24, 39, 0.5); /* bg-gray-900 bg-opacity-50 */
+  display: flex;
+  justify-content: center; /* flex justify-center */
+}
+
+.signup-footer-text {
+  font-size: 0.875rem; /* text-sm */
+  color: rgba(156, 163, 175, 1); /* text-gray-400 */
+}
+
+.signup-footer-link {
+  color: #34d399; /* text-green-400 */
+  text-decoration: none;
+}
+
+.signup-footer-link:hover {
+  text-decoration: underline; /* hover:underline */
+}
+
+/* Optional: Style for loader if needed */
+.signup-page-loader {
+  animation: spin 1s linear infinite; /* animate-spin */
+  display: block;
+  margin: auto;
+}
+
+.square {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #1d3335;
+  border: 1px solid #6b7280;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.signup-user-square {
+  width: 2.25rem; /* size-5 */
+  height: 2.25rem;
+  color: #059669;
+}
+
+.photo-box {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.input-file-sign-up {
+  display: none;
+}
+.signup-gender {
+  margin-bottom: 1rem;
+}
+.signup-gender > option {
+  padding: 1rem;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Input --------------------------------------------------------------
+.input-container {
+  position: relative;
+  margin-bottom: 1.5rem; /* mb-6 */
+}
+
+.input-icon-container {
+  position: absolute;
+  left: 0;
+  top: 45%;
+  bottom: 55%;
+  display: flex;
+  align-items: center; /* items-center */
+  padding-left: 0.75rem; /* pl-3 */
+  pointer-events: none;
+}
+
+.input-icon {
+  width: 1.25rem; /* size-5 */
+  height: 1.25rem;
+  color: #10b981; /* text-green-500 */
+}
+
+.input-field {
+  width: 100%; /* w-full */
+  padding-left: 2.5rem; /* pl-10 */
+  padding-right: 0.75rem; /* pr-3 */
+  padding-top: 0.5rem; /* py-2 */
+  padding-bottom: 0.5rem;
+  background-color: rgba(31, 41, 55, 0.5); /* bg-gray-800 bg-opacity-50 */
+  border-radius: 0.5rem; /* rounded-lg */
+  border: 1px solid rgba(107, 114, 128, 1); /* border-gray-700 */
+  color: white;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* transition duration-200 */
+}
+
+.input-field:focus {
+  border-color: #10b981; /* focus:border-green-500 */
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.5); /* focus:ring-2 focus:ring-green-500 */
+  outline: none;
+}
+
+// PasswordStrengthMeter --------------------------------------------------------------
+
+.password-criteria-container {
+  margin-top: 0.5rem; /* mt-2 */
+  margin-bottom: 1rem;
+}
+
+.password-criteria-item {
+  display: flex;
+  align-items: center; /* items-center */
+  font-size: 0.75rem; /* text-xs */
+  margin-bottom: 0.25rem; /* space-y-1 */
+}
+
+.password-criteria-icon {
+  width: 1rem; /* size-4 */
+  height: 1rem;
+  margin-right: 0.5rem; /* mr-2 */
+}
+
+.password-criteria-icon.met {
+  color: #10b981; /* text-green-500 */
+}
+
+.password-criteria-icon.unmet {
+  color: #6b7280; /* text-gray-500 */
+}
+
+.password-criteria-text.met {
+  color: #10b981; /* text-green-500 */
+}
+
+.password-criteria-text.unmet {
+  color: #9ca3af; /* text-gray-400 */
+}
+
+.password-strength-meter-container {
+  margin-top: 0.5rem; /* mt-2 */
+}
+
+.strength-meter-header {
+  display: flex;
+  justify-content: space-between; /* justify-between */
+  align-items: center; /* items-center */
+  margin-bottom: 0.25rem; /* mb-1 */
+}
+
+.strength-meter-label {
+  font-size: 0.75rem; /* text-xs */
+  color: #9ca3af; /* text-gray-400 */
+}
+
+.strength-meter-text {
+  font-size: 0.75rem; /* text-xs */
+  color: #9ca3af; /* text-gray-400 */
+}
+
+.strength-bars-container {
+  display: flex;
+  gap: 0.25rem; /* space-x-1 */
+}
+
+.strength-bar {
+  height: 0.25rem; /* h-1 */
+  width: 25%; /* w-1/4 */
+  border-radius: 9999px; /* rounded-full */
+  transition: background-color 0.3s ease-in-out; /* transition-colors duration-300 */
+}
+
+.strength-bar.red {
+  background-color: #f87171; /* bg-red-500 */
+}
+
+.strength-bar.red-light {
+  background-color: #fca5a5; /* bg-red-400 */
+}
+
+.strength-bar.yellow {
+  background-color: #fbbf24; /* bg-yellow-500 */
+}
+
+.strength-bar.yellow-light {
+  background-color: #fcd34d; /* bg-yellow-400 */
+}
+
+.strength-bar.green {
+  background-color: #10b981; /* bg-green-500 */
+}
+
+.strength-bar.bg-gray-600 {
+  background-color: #4b5563; /* bg-gray-600 */
+}
