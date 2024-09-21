@@ -6,6 +6,10 @@
     "moduleResolution": "NodeNext",
     "outDir": "dist",
     "strict": true,
-    "skipLibCheck": true
-  }
+    "skipLibCheck": true,
+    "esModuleInterop": true, // Helps with CommonJS modules
+    "forceConsistentCasingInFileNames": true // Ensures consistent file naming
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }
