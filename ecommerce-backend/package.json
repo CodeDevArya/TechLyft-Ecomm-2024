@@ -8,7 +8,6 @@
     "build": "tsc",
     "watch": "tsc -w",
     "dev": "nodemon dist/app.js"
-    "install-types": "npm i --save-dev @types/express @types/morgan @types/cors @types/cookie-parser @types/bcryptjs @types/multer @types/jsonwebtoken"
   },
   "keywords": [],
   "author": "",
