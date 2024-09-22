@@ -23,7 +23,7 @@ const SignUpPage = () => {
       return toast.error("Gender must be 'male' or 'female'");
     }
     try {
-      signup(email, password, name, gender, dob!);
+      signup(email, password, name, gender.toLocaleLowerCase(), dob!);
       navigate("/verify-email");
     } catch (error: any) {
       console.log(error);

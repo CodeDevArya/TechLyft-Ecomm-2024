@@ -106,7 +106,7 @@ const EmailVerificationPage = () => {
             disabled={isLoading || code.some((digit) => !digit)}
             className="verifyEmail-w-full verifyEmail-bg-gradient-to-r verifyEmail-from-green-500 verifyEmail-to-emerald-600 verifyEmail-text-white verifyEmail-font-bold verifyEmail-py-3 verifyEmail-px-4 verifyEmail-rounded-lg verifyEmail-shadow-lg verifyEmail-hover:from-green-600 verifyEmail-hover:to-emerald-700 verifyEmail-focus:outline-none verifyEmail-focus:ring-2 verifyEmail-focus:ring-green-500 verifyEmail-focus:ring-opacity-50 verifyEmail-disabled:opacity-50"
           >
-            {isLoading ? "Verifying..." : "Verify Email"} Verify Email
+            {isLoading ? "Verifying..." : "Verify Email"}
           </motion.button>
         </form>
       </motion.div>
