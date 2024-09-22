@@ -2,6 +2,7 @@ import jwt from "jsonwebtoken";
 import { tryCatch } from "./error.js";
 export const verifyToken = tryCatch(async (req, res, next) => {
     const token = req.cookies.token;
+    // const token = req.query.token as string;
     if (!token) {
         return res
             .status(400)

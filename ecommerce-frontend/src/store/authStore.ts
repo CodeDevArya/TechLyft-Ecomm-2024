@@ -31,7 +31,7 @@ interface AuthState {
     password: string,
     name: string,
     gender: string,
-    dob: any,
+    dob: any
   ) => void;
 
   verifyEmail: (code: string) => void;
@@ -136,7 +136,9 @@ export const useAuthStore = create<AuthState>((set) => ({
   checkAuth: async () => {
     set({ isLoading: true, error: null });
     try {
-      const response = await axios.get(`${API_URL}/check-auth`);
+      const response = await axios.get(
+        `${API_URL}/check-auth?token`
+      );
       set({
         user: response.data.user,
         isAuthenticated: true,
