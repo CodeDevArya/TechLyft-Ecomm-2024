@@ -58,24 +58,24 @@ const NavBar = () => {
 
   return (
     <nav className="navbar container">
-      {isLoading || isCheckingAuth ? (
-        <div className='navbar-container navbar-container-sm navbar-container-lg'></div>
-      ) : (
-        <>
-          <div
-            className={`navbar-container navbar-container-sm navbar-container-lg`}
-          >
-            <div className="navbar-header">
-              <div className="flex-shrink-0 flex items-center">
-                <a
-                  href="/"
-                  className="navbar-logo"
-                  onClick={() => handleLinkClick("home")}
-                >
-                  TechLyft
-                </a>
-              </div>
+      <div
+        className={`navbar-container navbar-container-sm navbar-container-lg`}
+      >
+        <div className="navbar-header">
+          <div className="flex-shrink-0 flex items-center">
+            <a
+              href="/"
+              className="navbar-logo"
+              onClick={() => handleLinkClick("home")}
+            >
+              TechLyft
+            </a>
+          </div>
 
+          {isLoading || isCheckingAuth ? (
+            <div className="navbar-logo">...</div>
+          ) : (
+            <>
               <div className="navbar-links hidden sm:flex">
                 {["Home", "Products", "About Us"].map((item) => (
                   <span
@@ -218,87 +218,82 @@ const NavBar = () => {
                   )}
                 </button>
               </div>
-            </div>
-          </div>
+            </>
+          )}
+        </div>
+      </div>
 
-          <AnimatePresence>
-            {isOpen && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                className="sm:hidden"
-              >
-                <div className="navbar-mobile-menu">
-                  {["Home", "Products", "About Us"].map((item) => (
-                    <a
-                      key={item.toLowerCase()}
-                      href={
-                        item === "Home"
-                          ? "/"
-                          : item === "Products"
-                          ? "/shop"
-                          : "/about-us"
-                      }
-                      className={`navbar-link navbar-mobile-link`}
-                      onClick={() => {
-                        handleLinkClick(item.toLowerCase());
-                        setIsOpen(false);
-                      }}
-                    >
-                      {item}
-                    </a>
-                  ))}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="sm:hidden"
+          >
+            <div className="navbar-mobile-menu">
+              {["Home", "Products", "About Us"].map((item) => (
+                <a
+                  key={item.toLowerCase()}
+                  href={
+                    item === "Home"
+                      ? "/"
+                      : item === "Products"
+                      ? "/shop"
+                      : "/about-us"
+                  }
+                  className={`navbar-link navbar-mobile-link`}
+                  onClick={() => {
+                    handleLinkClick(item.toLowerCase());
+                    setIsOpen(false);
+                  }}
+                >
+                  {item}
+                </a>
+              ))}
+            </div>
+            <div className="navbar-user-info">
+              <div className="flex user-info-cart">
+                <div className="navbar-user-avatar">
+                  <FaUser className="navbar-user-avatar" aria-hidden="true" />
                 </div>
-                <div className="navbar-user-info">
-                  <div className="flex user-info-cart">
-                    <div className="navbar-user-avatar">
-                      <FaUser
-                        className="navbar-user-avatar"
-                        aria-hidden="true"
-                      />
-                    </div>
-                    <div className="navbar-user-details">
-                      <div className="navbar-user-name">{user?.name}</div>
-                      <div className="navbar-user-email">{user?.email}</div>
-                    </div>
-                  </div>
-                  <div className="mt-3 space-y-1">
-                    {(user?.role === "admin"
-                      ? ["Dashboard", "Orders"]
-                      : ["Orders"]
-                    ).map((item) => (
-                      <a
-                        key={item}
-                        href={
-                          item === "Dashboard" ? "/admin/dashboard" : "/orders"
-                        }
-                        className="navbar-mobile-link"
-                        onClick={() => {
-                          handleLinkClick(item.toLowerCase());
-                          setIsOpen(false);
-                        }}
-                      >
-                        {item}
-                      </a>
-                    ))}
-                    <a
-                      href="#"
-                      className="navbar-mobile-link"
-                      onClick={() => {
-                        handleLogout();
-                        setIsOpen(false);
-                      }}
-                    >
-                      Logout
-                    </a>
-                  </div>
+                <div className="navbar-user-details">
+                  <div className="navbar-user-name">{user?.name}</div>
+                  <div className="navbar-user-email">{user?.email}</div>
                 </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </>
-      )}
+              </div>
+              <div className="mt-3 space-y-1">
+                {(user?.role === "admin"
+                  ? ["Dashboard", "Orders"]
+                  : ["Orders"]
+                ).map((item) => (
+                  <a
+                    key={item}
+                    href={item === "Dashboard" ? "/admin/dashboard" : "/orders"}
+                    className="navbar-mobile-link"
+                    onClick={() => {
+                      handleLinkClick(item.toLowerCase());
+                      setIsOpen(false);
+                    }}
+                  >
+                    {item}
+                  </a>
+                ))}
+                <a
+                  href="#"
+                  className="navbar-mobile-link"
+                  onClick={() => {
+                    handleLogout();
+                    setIsOpen(false);
+                  }}
+                >
+                  Logout
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };
