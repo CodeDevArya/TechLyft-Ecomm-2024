@@ -29,8 +29,8 @@
 
     #close-shop-sidebar {
       width: 80%;
+      max-width: 400px;
       margin: 1rem auto;
-      display: block;
       padding: 0.75rem;
       border: none;
       outline: none;
@@ -43,6 +43,7 @@
     > div {
       .price-range {
         width: 100%;
+        max-width: 500px;
         padding: 1rem;
         background-color: white;
         border: 1px solid rgba(154, 154, 154, 0.38);
@@ -65,6 +66,7 @@
 
       > Select {
         width: 100%;
+        max-width: 500px;
       }
 
       > input {

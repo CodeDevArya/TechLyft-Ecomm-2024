@@ -253,43 +253,62 @@ const NavBar = () => {
               ))}
             </div>
             <div className="navbar-user-info">
-              <div className="flex user-info-cart">
-                <div className="navbar-user-avatar">
-                  <FaUser className="navbar-user-avatar" aria-hidden="true" />
-                </div>
-                <div className="navbar-user-details">
-                  <div className="navbar-user-name">{user?.name}</div>
-                  <div className="navbar-user-email">{user?.email}</div>
-                </div>
-              </div>
-              <div className="mt-3 space-y-1">
-                {(user?.role === "admin"
-                  ? ["Dashboard", "Orders"]
-                  : ["Orders"]
-                ).map((item) => (
-                  <a
-                    key={item}
-                    href={item === "Dashboard" ? "/admin/dashboard" : "/orders"}
-                    className="navbar-mobile-link"
-                    onClick={() => {
-                      handleLinkClick(item.toLowerCase());
-                      setIsOpen(false);
-                    }}
+              {!isAuthenticated ? (
+                <div>
+                  <button
+                    className="navbar-login-button"
+                    style={{ width: "100%" }}
+                    onClick={() => navigate("/login")}
                   >
-                    {item}
-                  </a>
-                ))}
-                <a
-                  href="#"
-                  className="navbar-mobile-link"
-                  onClick={() => {
-                    handleLogout();
-                    setIsOpen(false);
-                  }}
-                >
-                  Logout
-                </a>
-              </div>
+                    Login
+                  </button>
+                </div>
+              ) : (
+                <>
+                  <div className="flex user-info-cart">
+                    <div className="navbar-user-avatar">
+                      <FaUser
+                        className="navbar-user-avatar"
+                        aria-hidden="true"
+                      />
+                    </div>
+                    <div className="navbar-user-details">
+                      <div className="navbar-user-name">{user?.name}</div>
+                      <div className="navbar-user-email">{user?.email}</div>
+                    </div>
+                  </div>
+                  <div className="mt-3 space-y-1">
+                    {(user?.role === "admin"
+                      ? ["Dashboard", "Orders"]
+                      : ["Orders"]
+                    ).map((item) => (
+                      <a
+                        key={item}
+                        href={
+                          item === "Dashboard" ? "/admin/dashboard" : "/orders"
+                        }
+                        className="navbar-mobile-link"
+                        onClick={() => {
+                          handleLinkClick(item.toLowerCase());
+                          setIsOpen(false);
+                        }}
+                      >
+                        {item}
+                      </a>
+                    ))}
+                    <a
+                      href="#"
+                      className="navbar-mobile-link"
+                      onClick={() => {
+                        handleLogout();
+                        setIsOpen(false);
+                      }}
+                    >
+                      Logout
+                    </a>
+                  </div>
+                </>
+              )}
             </div>
           </motion.div>
         )}

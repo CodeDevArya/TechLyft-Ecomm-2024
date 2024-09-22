@@ -30,6 +30,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 a {
@@ -260,6 +261,7 @@ button:focus, a:focus, input:focus, textarea:focus {
 
 .checkout-container{
   max-width: 400px;
+  padding: 1rem;
   width: 100%;
   margin: auto;
   margin-top: 3rem;

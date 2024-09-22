@@ -114,7 +114,7 @@
   border-radius: 0.375rem; /* rounded-md */
   color: #fff; /* text-gray-400 */
   transition: background 0.2s, color 0.2s;
-  font-size: 2rem;
+  font-size: 1.6rem;
   gap: 10px;
 }
 
