@@ -49,16 +49,20 @@ const Transaction = () => {
   const { user } = useAuthStore();
   const [allTransactions, setAllTransactions] = useState<string[]>([]);
   const [rows, setRows] = useState<DataType[]>([]);
+  const [secondLoading, setSecondLoading] = useState(false);
 
   useEffect(() => {
+    setSecondLoading(true);
     const getAllProducts = async () => {
       if (user) {
         try {
           const res: any = await allAdminOrders(user._id);
           setAllTransactions(res!.orders);
+          setSecondLoading(false);
         } catch (err) {
           console.error(err);
           toast.error("Failed to fetch products.");
+          setSecondLoading(false);
         }
       }
     };
@@ -69,7 +73,7 @@ const Transaction = () => {
   useEffect(() => {
     if (allTransactions.length > 0) {
       setRows(
-        allTransactions.map((transaction: any) => ({
+        allTransactions?.map((transaction: any) => ({
           key: transaction._id,
           user: transaction.user.name,
           discount: Math.round(
@@ -110,7 +114,7 @@ const Transaction = () => {
   return (
     <div className="admin-container container">
       <AdminSidebar />
-      <main>{isLoading ? <Loader /> : Table}</main>
+      <main>{isLoading || secondLoading ? <Loader /> : Table}</main>
     </div>
   );
 };
