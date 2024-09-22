@@ -39,6 +39,7 @@ body button {
   padding: 4rem;
   position: relative;
   overflow: hidden;
+  min-height: 645px;
 
   &::before {
     content: "";
@@ -85,7 +86,7 @@ body button {
     button {
       padding: 1rem 2rem;
       border-radius: 0.5rem;
-      background-color: #1F2937;
+      background-color: #1f2937;
       cursor: pointer;
       z-index: 9;
       position: relative;
