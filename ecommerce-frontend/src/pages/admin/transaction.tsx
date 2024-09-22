@@ -75,7 +75,7 @@ const Transaction = () => {
       setRows(
         allTransactions?.map((transaction: any) => ({
           key: transaction._id,
-          user: transaction.user.name,
+          user: transaction.shippingInfo.name,
           discount: Math.round(
             (transaction.discount / 100) * transaction.subtotal
           ),
