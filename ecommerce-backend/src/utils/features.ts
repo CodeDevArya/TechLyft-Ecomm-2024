@@ -166,10 +166,10 @@ export const generateTokenAndSetCookie = (res: any, userId: string) => {
   });
 
   res.cookie("token", token, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "productionTrue",
-    sameSite: "lax",
-    maxAge: 7 * 24 * 60 * 60 * 1000,
+    httpOnly: true, // Prevents access to the cookie from JavaScript
+    secure: process.env.NODE_ENV === "production", // Ensures cookie is sent over HTTPS in production
+    sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax", // Cross-site only in production, lax for local dev
+    maxAge: 7 * 24 * 60 * 60 * 1000, // Cookie expires in 7 days
   });
 
   return token;
