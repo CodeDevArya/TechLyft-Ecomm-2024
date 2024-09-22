@@ -45,7 +45,7 @@ app.use(cookieParser()); // parse cookies from request headers
 app.use(morgan("dev"));
 app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 
-app.get("/", (req, res) => {
+app.get("/", (req: any, res: any) => {
   res.send("Hello World!");
 });
 
@@ -66,7 +66,7 @@ app.use(errorMiddleware);
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "/frontend/dist")));
 
-  app.get("*", (req, res) => {
+  app.get("*", (req:any, res:any) => {
     res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
   });
 }

@@ -17,9 +17,7 @@ interface ReviewRequestBody {
 
 export const addReview = tryCatch(
   async (
-    req: Request<{}, {}, ReviewRequestBody>,
-    res: Response,
-    next: NextFunction
+    req: any, res: any, next: any
   ) => {
     const { productId, title, text, rating, name, userId } = req.body;
 
@@ -92,7 +90,7 @@ export const addReview = tryCatch(
 );
 
 export const getAllReviewsWithPagination = tryCatch(
-  async (req: Request, res: Response, next: NextFunction) => {
+  async (req: any, res: any, next: any) => {
     const { productId } = req.params;
     const limit = 6; // Max 6 reviews per page
     const page = parseInt(req.query.page as string) || 1; // Get the page number from the query, default to page 1
@@ -144,7 +142,7 @@ export const getAllReviewsWithPagination = tryCatch(
 );
 
 export const deleteReview = tryCatch(
-  async (req: Request, res: Response, next: NextFunction) => {
+  async (req: any, res: any, next: any) => {
     const { productId, reviewId, userId } = req.params;
 
     if (!userId) {
@@ -222,7 +220,7 @@ export const deleteReview = tryCatch(
 );
 
 export const getUserReviews = tryCatch(
-  async (req: Request, res: Response, next: NextFunction) => {
+  async (req: any, res: any, next: any) => {
     const { productId, userId } = req.params;
 
     if (!productId || !userId) {

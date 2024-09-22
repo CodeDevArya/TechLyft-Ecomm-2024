@@ -3,7 +3,7 @@ import { tryCatch } from "../middlewares/error.js";
 import { Coupon } from "../models/coupons.js";
 import ErrorHandler from "../utils/utility-classes.js";
 
-export const stripePayment = tryCatch(async (req, res, next) => {
+export const stripePayment = tryCatch(async (req: any, res: any, next: any) => {
   const { amount } = req.body;
 
   if (!amount) {
@@ -21,7 +21,7 @@ export const stripePayment = tryCatch(async (req, res, next) => {
   });
 });
 
-export const newCoupon = tryCatch(async (req, res, next) => {
+export const newCoupon = tryCatch(async (req: any, res: any, next: any) => {
   const { coupon, amount } = req.body;
 
   if (!coupon || !amount) {
@@ -36,7 +36,7 @@ export const newCoupon = tryCatch(async (req, res, next) => {
   });
 });
 
-export const applyDiscount = tryCatch(async (req, res, next) => {
+export const applyDiscount = tryCatch(async (req: any, res: any, next: any) => {
   const { coupon } = req.query;
 
   const couponDiscount = await Coupon.findOne({ couponCode: coupon });
@@ -51,7 +51,7 @@ export const applyDiscount = tryCatch(async (req, res, next) => {
   });
 });
 
-export const getAllCoupons = tryCatch(async (req, res, next) => {
+export const getAllCoupons = tryCatch(async (req: any, res: any, next: any) => {
   const coupons = await Coupon.find({});
 
   if (!coupons) {
@@ -64,7 +64,7 @@ export const getAllCoupons = tryCatch(async (req, res, next) => {
   });
 });
 
-export const deleteCoupon = tryCatch(async (req, res, next) => {
+export const deleteCoupon = tryCatch(async (req: any, res: any, next: any) => {
   const { id } = req.params;
 
   if (!id) return next(new ErrorHandler("Coupon Id is Required", 400));

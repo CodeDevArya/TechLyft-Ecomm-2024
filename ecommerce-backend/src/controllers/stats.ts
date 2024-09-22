@@ -10,7 +10,7 @@ import {
   getInventory,
 } from "../utils/features.js";
 
-export const getDashboardData = tryCatch(async (req, res, next) => {
+export const getDashboardData = tryCatch(async (req: any, res: any, next: any) => {
   let stats = {};
 
   const key = "admin-dashboardStats";
@@ -215,7 +215,7 @@ export const getDashboardData = tryCatch(async (req, res, next) => {
   });
 });
 
-export const getPieChart = tryCatch(async (req, res, next) => {
+export const getPieChart = tryCatch(async (req: any, res: any, next: any) => {
   let Piecharts;
   const key = "admin-pie-chart";
 
@@ -341,7 +341,7 @@ export const getPieChart = tryCatch(async (req, res, next) => {
   });
 });
 
-export const getBarChart = tryCatch(async (req, res, next) => {
+export const getBarChart = tryCatch(async (req: any, res: any, next: any) => {
   let BarChart;
 
   const key = "admin-bar-chart";
@@ -431,7 +431,7 @@ export const getBarChart = tryCatch(async (req, res, next) => {
   });
 });
 
-export const getLineChart = tryCatch(async (req, res, next) => {
+export const getLineChart = tryCatch(async (req: any, res: any, next: any) => {
   let LineChart;
 
   const key = "admin-line-chart";

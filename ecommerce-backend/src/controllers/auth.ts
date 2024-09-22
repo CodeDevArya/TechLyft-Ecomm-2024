@@ -15,7 +15,7 @@ import {
 import ErrorHandler from "../utils/utility-classes.js";
 import bcryptjs from "bcryptjs";
 
-export const checkAuthUsers = tryCatch(async (req, res, next) => {
+export const checkAuthUsers = tryCatch(async (req:any, res:any, next) => {
   const user = await User.findById(
     (req as unknown as { userId: string }).userId
   ).select("-password");
@@ -32,7 +32,7 @@ export const checkAuthUsers = tryCatch(async (req, res, next) => {
   });
 });
 
-export const signUp = tryCatch(async (req, res, next) => {
+export const signUp = tryCatch(async (req:any, res:any, next) => {
   const { name, email, gender, dob, password } = req.body;
 
   if (!email || !name || !gender || !dob || !password) {
@@ -79,7 +79,7 @@ export const signUp = tryCatch(async (req, res, next) => {
   });
 });
 
-export const verifyEmail = tryCatch(async (req, res, next) => {
+export const verifyEmail = tryCatch(async (req:any, res:any, next) => {
   const { code } = req.body;
 
   const user = await User.findOne({
@@ -113,7 +113,7 @@ export const verifyEmail = tryCatch(async (req, res, next) => {
   });
 });
 
-export const login = tryCatch(async (req, res, next) => {
+export const login = tryCatch(async (req:any, res:any, next) => {
   const { email, password } = req.body;
 
   if (!email || !password) {
@@ -147,7 +147,7 @@ export const login = tryCatch(async (req, res, next) => {
   });
 });
 
-export const logout = tryCatch(async (req, res, next) => {
+export const logout = tryCatch(async (req:any, res:any, next) => {
   res.clearCookie("token");
 
   res.status(200).json({
@@ -156,7 +156,7 @@ export const logout = tryCatch(async (req, res, next) => {
   });
 });
 
-export const forgotPassword = tryCatch(async (req, res, next) => {
+export const forgotPassword = tryCatch(async (req:any, res:any, next) => {
   const { email } = req.body;
 
   const user = await User.findOne({ email });
@@ -190,7 +190,7 @@ export const forgotPassword = tryCatch(async (req, res, next) => {
   });
 });
 
-export const resetPassword = tryCatch(async (req, res, next) => {
+export const resetPassword = tryCatch(async (req:any, res:any, next) => {
   const { token } = req.params;
   const { password } = req.body;
 

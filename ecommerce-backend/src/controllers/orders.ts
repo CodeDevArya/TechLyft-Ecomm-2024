@@ -6,7 +6,7 @@ import { invalidateCache, reduceStock } from "../utils/features.js";
 import ErrorHandler from "../utils/utility-classes.js";
 import { myCache } from "../app.js";
 
-export const myOrders = tryCatch(async (req, res, next) => {
+export const myOrders = tryCatch(async (req: any, res: any, next: any) => {
   const { id: user } = req.query;
 
   if (!user) {
@@ -27,7 +27,7 @@ export const myOrders = tryCatch(async (req, res, next) => {
   res.status(200).json({ success: true, orders });
 });
 
-export const allOrders = tryCatch(async (req, res, next) => {
+export const allOrders = tryCatch(async (req: any, res: any, next: any) => {
   let orders = [];
 
   if (myCache.has("all-admin-orders")) {
@@ -40,7 +40,7 @@ export const allOrders = tryCatch(async (req, res, next) => {
   res.status(200).json({ success: true, orders });
 });
 
-export const getOrderDetailsById = tryCatch(async (req, res, next) => {
+export const getOrderDetailsById = tryCatch(async (req: any, res: any, next: any) => {
   const { id } = req.params;
 
   const key = `order-details-id-${id}`;
@@ -58,7 +58,7 @@ export const getOrderDetailsById = tryCatch(async (req, res, next) => {
 });
 
 export const newOrder = tryCatch(
-  async (req: Request<{}, {}, NewOrderRequestBody>, res, next) => {
+  async (req: any, res: any, next: any) => {
     const {
       shippingInfo,
       cartItems,
@@ -117,7 +117,7 @@ export const newOrder = tryCatch(
   }
 );
 
-export const processOrder = tryCatch(async (req, res, next) => {
+export const processOrder = tryCatch(async (req: any, res: any, next: any) => {
   const { id } = req.params;
 
   const order = await Order.findById(id);
@@ -153,7 +153,7 @@ export const processOrder = tryCatch(async (req, res, next) => {
     .json({ success: true, message: "Order Processed successfully" });
 });
 
-export const deleteOrder = tryCatch(async (req, res, next) => {
+export const deleteOrder = tryCatch(async (req: any, res: any, next: any) => {
   const { id } = req.params;
 
   const order = await Order.findById(id);

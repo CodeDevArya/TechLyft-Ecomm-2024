@@ -6,7 +6,7 @@ import { invalidateCache } from "../utils/features.js";
 import { EnquiryMail } from "../mail/email.config.js";
 
 export const getAllUsers = tryCatch(
-  async (req: Request, res: Response, next: NextFunction) => {
+  async (req: Request, res: any, next: any) => {
     const users = await User.find({});
 
     return res.status(200).json({ success: true, data: users });
@@ -14,7 +14,7 @@ export const getAllUsers = tryCatch(
 );
 
 export const getUser = tryCatch(
-  async (req: Request, res: Response, next: NextFunction) => {
+  async (req: any, res: any, next: any) => {
     const id = req.params.id;
 
     const user = await User.findById(id);
@@ -26,7 +26,7 @@ export const getUser = tryCatch(
 );
 
 export const getUserByEmail = tryCatch(
-  async (req: Request, res: Response, next: NextFunction) => {
+  async (req: any, res: any, next: any) => {
     const id = req.params.id;
 
     const user = await User.findOne({ email: id });
@@ -38,7 +38,7 @@ export const getUserByEmail = tryCatch(
 );
 
 export const deleteUser = tryCatch(
-  async (req: Request, res: Response, next: NextFunction) => {
+  async (req: any, res: any, next: any) => {
     const id = req.params.id;
 
     const user = await User.findById(id);
@@ -61,7 +61,7 @@ export const deleteUser = tryCatch(
 );
 
 export const SendEnquiryMail = tryCatch(
-  async (req: Request, res: Response, next: NextFunction) => {
+  async (req: any, res: any, next: any) => {
     const { name, email, message } = req.body;
 
     EnquiryMail(email, message, name);

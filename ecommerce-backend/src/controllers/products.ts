@@ -16,7 +16,7 @@ const unlinkAsync = promisify(unlink);
 const rmAsync = promisify(rm);
 
 export const getLatestProduct = tryCatch(
-  async (req: Request, res: Response, next: NextFunction) => {
+  async (req: any, res: any, next: any) => {
     let products;
 
     if (myCache.has("latest-product")) {
@@ -32,7 +32,7 @@ export const getLatestProduct = tryCatch(
 );
 
 export const getAllCategories = tryCatch(
-  async (req: Request, res: Response, next: NextFunction) => {
+  async (req: any, res: any, next: any) => {
     let categories;
 
     if (myCache.has("categories")) {
@@ -48,7 +48,7 @@ export const getAllCategories = tryCatch(
 );
 
 export const getAdminProduct = tryCatch(
-  async (req: Request, res: Response, next: NextFunction) => {
+  async (req: any, res: any, next: any) => {
     let products;
 
     if (myCache.has("all-admin-products")) {
@@ -63,7 +63,7 @@ export const getAdminProduct = tryCatch(
 );
 
 export const getProductById = tryCatch(
-  async (req: Request, res: Response, next: NextFunction) => {
+  async (req: any, res: any, next: any) => {
     let product;
 
     if (myCache.has(`product-${req.params.id}`)) {
@@ -84,9 +84,7 @@ export const getProductById = tryCatch(
 
 export const getShopAllProduct = tryCatch(
   async (
-    req: Request<{}, {}, {}, SearchRequestQuery>,
-    res: Response,
-    next: NextFunction
+    req: any, res: any, next: any
   ) => {
     const { search, sort, category, price } = req.query;
 
@@ -133,9 +131,7 @@ export const getShopAllProduct = tryCatch(
 
 export const newProduct = tryCatch(
   async (
-    req: Request<{}, {}, NewProductRequestBody>,
-    res: Response,
-    next: NextFunction
+    req: any, res: any, next: any
   ) => {
     const { name, category, price, stock, description } = req.body;
     const photos = req.files as Express.Multer.File[]; // Expecting an array of files
@@ -190,7 +186,7 @@ export const newProduct = tryCatch(
 );
 
 export const updateProduct = tryCatch(
-  async (req: Request, res: Response, next: NextFunction) => {
+  async (req: any, res: any, next: any) => {
     const { id } = req.params;
 
     const { name, category, price, stock, description } = req.body;
@@ -245,7 +241,7 @@ export const updateProduct = tryCatch(
 );
 
 export const deleteProduct = tryCatch(
-  async (req: Request, res: Response, next: NextFunction) => {
+  async (req: any, res: any, next: any) => {
     const product = await Product.findById(req.params.id);
 
     if (!product) {

@@ -3,7 +3,7 @@ import { User } from "../models/user.js";
 import ErrorHandler from "../utils/utility-classes.js";
 
 //middleware to male sure only admin can access this route
-export const adminOnly = tryCatch(async (req, res, next) => {
+export const adminOnly = tryCatch(async (req:any, res, next) => {
   const { id } = req.query;
 
   if (!id) {

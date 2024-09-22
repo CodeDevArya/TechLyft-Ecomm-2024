@@ -160,7 +160,7 @@ export const generateVerificationToken = () => {
   return Math.floor(100000 + Math.random() * 900000).toString();
 };
 
-export const generateTokenAndSetCookie = (res: Response, userId: string) => {
+export const generateTokenAndSetCookie = (res: any, userId: string) => {
   const token = jwt.sign({ userId }, process.env.JWT_SECRET!, {
     expiresIn: "7d",
   });
