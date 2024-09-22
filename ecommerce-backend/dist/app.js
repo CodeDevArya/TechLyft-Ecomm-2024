@@ -35,7 +35,7 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser()); // parse cookies from request headers
 app.use(morgan("dev"));
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+app.use(cors({ origin: "https://tech-lyft-eccommerce.vercel.app/", credentials: true }));
 app.get("/", (req, res) => {
     res.send("Hello World!");
 });

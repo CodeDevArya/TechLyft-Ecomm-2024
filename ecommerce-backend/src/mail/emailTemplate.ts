@@ -111,7 +111,7 @@ export const WELCOME_EMAIL_TEMPLATE = `
     <p>We're thrilled to have you on board. At Techlyft, we strive to deliver the best service possible, and we're excited to have you join us on this journey.</p>
     <p>If you have any questions or need assistance, feel free to reach out to us.</p>
     <div style="text-align: center; margin: 30px 0;">
-      <a href="http://localhost:5173/" style="display: inline-block; padding: 12px 25px; font-size: 16px; color: #ffffff; background-color: #007BFF; border-radius: 5px; text-decoration: none;">Get Started</a>
+      <a href="https://tech-lyft-eccommerce.vercel.app/" style="display: inline-block; padding: 12px 25px; font-size: 16px; color: #ffffff; background-color: #007BFF; border-radius: 5px; text-decoration: none;">Get Started</a>
     </div>
     <p>Best regards,<br>Techlyft Team</p>
   </div>
