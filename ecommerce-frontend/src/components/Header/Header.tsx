@@ -59,7 +59,7 @@ const NavBar = () => {
   return (
     <nav className="navbar container">
       {isLoading || isCheckingAuth ? (
-        <div></div>
+        <div className='navbar-container navbar-container-sm navbar-container-lg'></div>
       ) : (
         <>
           <div
