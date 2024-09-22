@@ -16,7 +16,7 @@ const CategoryCard = () => {
       title: "Computers & Laptops",
       description:
         "High-performance machines for work and play. From ultrabooks to gaming powerhouses.",
-      link: "search=&sort=&category=Laptop&maxPrice=1000000&page=1",
+      link: "search=&sort=&category=Laptop&maxPrice=1000000",
     },
     {
       icon: <Smartphone />,
