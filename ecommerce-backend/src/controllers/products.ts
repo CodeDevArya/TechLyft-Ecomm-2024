@@ -134,7 +134,7 @@ export const newProduct = tryCatch(
     req: any, res: any, next: any
   ) => {
     const { name, category, price, stock, description } = req.body;
-    const photos = req.files as Express.Multer.File[]; // Expecting an array of files
+    const photos = req.files as any[]; // Expecting an array of files
 
     if (!name || !category || !price || !stock || !description) {
       // Delete uploaded files if validation fails
@@ -190,7 +190,7 @@ export const updateProduct = tryCatch(
     const { id } = req.params;
 
     const { name, category, price, stock, description } = req.body;
-    const newPhotos = req.files as Express.Multer.File[]; // Expecting an array of files
+    const newPhotos = req.files as any[]; // Expecting an array of files
 
     const product = await Product.findById(id);
 
