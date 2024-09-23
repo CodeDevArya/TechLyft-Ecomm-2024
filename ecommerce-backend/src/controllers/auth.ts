@@ -147,8 +147,13 @@ export const login = tryCatch(async (req:any, res:any, next) => {
   });
 });
 
-export const logout = tryCatch(async (req:any, res:any, next) => {
-  res.clearCookie("token");
+export const logout = tryCatch(async (req: any, res: any, next) => {
+  res.clearCookie("token", {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production", // Same as when set
+    sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax", // Same as when set
+    path: "/", // Ensure the path matches how the cookie was set
+  });
 
   res.status(200).json({
     success: true,
