@@ -11,7 +11,6 @@ import {
   updateProduct,
 } from "../controllers/products.js";
 import { multipleUpload } from "../middlewares/multer.js";
-// import { singleUpload } from "../middlewares/multer.js";
 
 const app = express.Router();
 

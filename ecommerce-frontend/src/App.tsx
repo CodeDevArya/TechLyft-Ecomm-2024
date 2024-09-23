@@ -124,6 +124,17 @@ const App = () => {
     checkAuth();
   }, [checkAuth]);
 
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      fetch(
+        "https://techlyft-ecomm-2024-server.onrender.com/api/v1/products/latest-products"
+      );
+    }, 14 * 60 * 1000); // Ping every 14 minutes
+
+    // Clean up on unmount
+    return () => clearInterval(intervalId);
+  }, []);
+
   return (
     <Router>
       <Suspense fallback={<Loader />}>
