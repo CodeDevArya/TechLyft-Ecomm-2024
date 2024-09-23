@@ -43,7 +43,18 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser()); // parse cookies from request headers
 app.use(morgan("dev"));
-app.use(cors({ origin: "https://tech-lyft-ecommerce.vercel.app", credentials: true }));
+// app.use(cors({ origin: "https://tech-lyft-ecommerce.vercel.app", credentials: true }));
+app.use(cors({
+  origin: function (origin:any, callback:any) {
+    if (origin === "https://tech-lyft-ecommerce.vercel.app" || !origin) {
+      // Allow your frontend and any originless (UptimeRobot pings, server-to-server requests) requests
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true
+}));
 
 app.get("/", (req: any, res: any) => {
   res.send("Hello World!");
