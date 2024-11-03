@@ -209,3 +209,9 @@
     flex-direction: column;
   }
 }
+@media (max-width: 550px) {
+  .product{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
